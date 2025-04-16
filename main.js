@@ -3,9 +3,9 @@ let countId = 1;
 
 function ajouterCandidature(nom, age, projet){
     let newCandidature = [{ id : countId++,
-                            nom : nom,
-                            age : age,
-                            projet : projet,
+                            nom,
+                            age,
+                            projet,
                             statut : "en attente"
                             }];
     
@@ -20,8 +20,8 @@ function afficherToutesLesCandidatures(){
         return;
     }else{
         candidatures.forEach( candidat => (        
-            console.log("Les Candidate :"),
-            console.log( candidat.id| candidat.nom | candidat.age | candidat.projet | candidat.status)
+            console.log("Les Candidates :"),
+            console.log( "Id : ${candidat.id}| ${candidat.nom} | ${candidat.age} | ${candidat.projet} | ${candidat.status}")
     ));}
 
 }
@@ -38,23 +38,17 @@ function validerCandidature(id){
 }
 
 function rejeterCandidature(id){
-    let Candidat = candidatures.find(candidatures => candidatures.id === id)
-        if(Candidat){
-            Candidat.status = "Rejetée"
+    let candidat = candidatures.find(candidatures => candidatures.id === id)
+        if(candidat){
+            candidat.status = "Rejetée"
         }else{
             console.log("Ce candidate n'exist pas")
         }
 }
 
 function rechercherCandidat(nom){
-    let Candidat = candidatures.find(candidatures => candidatures.nom === nom)
+    let candidat = candidatures.find(candidatures => candidatures.nom === nom)
 
     console.log("le candidat : \n");
-    console.log(Candidat.id);
-    console.log(Candidat.nom);
-    console.log(Candidat.age);
-    console.log(Candidat.project);
-    console.log(Candidat.status);
+    console.log("Id : ${candidat.id}| ${candidat.nom} | ${candidat.age} | ${candidat.projet} | ${candidat.status}");
 }
-
-
